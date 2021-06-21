@@ -9,7 +9,8 @@
     name=ssmtp
     state=latest
 
-# Note: The template file has been encrypted with Ansible Vault so the playbook must be invoked with "--vault-id michael@prompt"
+# Note: The template file has been encrypted with Ansible Vault so the playbook must be invoked with "--vault-id user@prompt"
+# Need to find alternative method of encrypting or managing secrets on cloud
 - name: Copy standard ssmtp configuration file
   template:
     src:  etc/ssmtp/ssmtp.conf.j2
