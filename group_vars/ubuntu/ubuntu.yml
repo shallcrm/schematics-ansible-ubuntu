@@ -16,10 +16,10 @@ my_user: michael
 my_ssh_key: "{{ lookup('file', 'home/ssh_public_key.pub') }}"
 my_ansible_ssh_key: "{{ lookup('file', 'home/ansible_pwless_ssh_key.pub') }}"
 
-fail2ban_destemail: notify@mshallcross.me
+fail2ban_destemail: notificationemail@mail.domain
 fail2ban_bantime: 86400
 fail2ban_findtime: 600
 fail2ban_maxretry: 3
 
-git_global_name: "Michael Shallcross"
-git_global_email: m.a.shallcross@gmail.com
+git_global_name: "User Name"
+git_global_email: gituseremail@mail.domain
