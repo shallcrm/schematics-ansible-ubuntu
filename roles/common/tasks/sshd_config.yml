@@ -1,0 +1,14 @@
+###########################################################################################################
+# Tasks to configure sshd
+# WARNING:  Ensure ssh public key authentication is working - password logon will be disabled
+###########################################################################################################
+
+---
+- name: Copy standard sshd configuration file
+  template:
+    src:  etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes

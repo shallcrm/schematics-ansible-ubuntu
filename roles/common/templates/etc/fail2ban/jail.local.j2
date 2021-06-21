@@ -1,0 +1,82 @@
+#
+# WARNING: heavily refactored in 0.9.0 release.  Please review and
+#          customize settings for your setup.
+#
+# Changes:  in most of the cases you should not modify this
+#           file, but provide customizations in jail.local file,
+#           or separate .conf files under jail.d/ directory, e.g.:
+#
+# HOW TO ACTIVATE JAILS:
+#
+# YOU SHOULD NOT MODIFY THIS FILE.
+#
+# It will probably be overwritten or improved in a distribution update.
+#
+# Provide customizations in a jail.local file or a jail.d/customisation.local.
+# For example to change the default bantime for all jails and to enable the
+# ssh-iptables jail the following (uncommented) would appear in the .local file.
+# See man 5 jail.conf for details.
+#
+# [DEFAULT]
+# bantime = 7200
+#
+# [sshd]
+# enabled = true
+#
+# See jail.conf(5) man page for more information
+
+
+
+#  =================
+#  MY CUSTOMISATIONS
+#  =================
+
+# The DEFAULT allows a global definition of the options. They can be overridden
+# in each jail afterwards.
+
+[DEFAULT]
+
+# "bantime" is the number of seconds that a host is banned.
+bantime  = {{ fail2ban_bantime }}
+
+# A host is banned if it has generated "maxretry" during the last "findtime"
+# seconds.
+findtime  = {{ fail2ban_findtime }}
+
+# "maxretry" is the number of failures before a host get banned.
+maxretry = {{ fail2ban_maxretry }}
+
+
+#
+# ACTIONS
+#
+
+# Destination email address used solely for the interpolations in
+# jail.{conf,local,d/*} configuration files.
+destemail = {{ fail2ban_destemail }}
+
+# Sender email address used solely for some actions
+sender = {{ fail2ban_sender }}
+
+# Choose default action.  To change, just override value of 'action' with the
+# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local
+# globally (section [DEFAULT]) or per specific section
+action = %(action_mwl)s
+
+
+#
+# JAILS
+#
+
+#
+# SSH servers
+#
+
+[sshd]
+
+enabled = true
+port    = 22
+logpath = %(sshd_log)s
+
+
+

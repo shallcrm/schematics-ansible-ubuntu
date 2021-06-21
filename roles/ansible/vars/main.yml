@@ -1,0 +1,11 @@
+###########################################################################################################
+# Variables applicable to ansible role
+###########################################################################################################
+
+---
+ansible_user: michael
+
+my_ansible_user: ansible
+#my_ansible_ssh_key: "{{ lookup('file', lookup('env','HOME') + '/ansible_pwless_ssh_key.pub') }}"
+my_ansible_ssh_key: "{{ lookup('file', 'home/ansible_pwless_ssh_key.pub') }}"
+

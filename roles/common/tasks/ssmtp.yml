@@ -1,0 +1,30 @@
+###########################################################################################################
+# Tasks to configure ssmtp
+###########################################################################################################
+
+---
+- name: Install ssmtp
+  apt: 
+    update_cache=yes
+    name=ssmtp
+    state=latest
+
+# Note: The template file has been encrypted with Ansible Vault so the playbook must be invoked with "--vault-id michael@prompt"
+- name: Copy standard ssmtp configuration file
+  template:
+    src:  etc/ssmtp/ssmtp.conf.j2
+    dest: /etc/ssmtp/ssmtp.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+
+- name: Copy standard reverse aliases file
+  copy:
+    src: etc/ssmtp/revaliases
+    dest: /etc/ssmtp/revaliases
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+

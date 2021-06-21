@@ -1,0 +1,12 @@
+###########################################################################################################
+# Tasks specific to host focal-test
+###########################################################################################################
+
+---
+
+# Start cockpit daemon
+- name: Start Cockpit daemon
+  ansible.builtin.systemd:
+    state: started
+    name: cockpit
+

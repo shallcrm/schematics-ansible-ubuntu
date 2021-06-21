@@ -1,0 +1,25 @@
+###########################################################################################################
+# Variables applicable to entire ubuntu group
+###########################################################################################################
+
+---
+ansible_user: ansible
+ansible_ssh_private_key_file: ~/.ssh/ansible_pwless_ssh_key
+ansible_python_interpreter: /usr/bin/python3
+
+sys_packages: [ 'mc', 'htop', 'curl', 'git', 'ufw', 'software-properties-common', 'avahi-daemon', 'net-tools', 'nfs-common', 'jq' ] 
+
+ssh_allow_users:  "michael ansible vagrant"
+
+my_user: michael
+#my_ssh_key: "{{ lookup('file', lookup('env','HOME') + '/ssh_public_key.pub') }}"
+my_ssh_key: "{{ lookup('file', 'home/ssh_public_key.pub') }}"
+my_ansible_ssh_key: "{{ lookup('file', 'home/ansible_pwless_ssh_key.pub') }}"
+
+fail2ban_destemail: notify@mshallcross.me
+fail2ban_bantime: 86400
+fail2ban_findtime: 600
+fail2ban_maxretry: 3
+
+git_global_name: "Michael Shallcross"
+git_global_email: m.a.shallcross@gmail.com

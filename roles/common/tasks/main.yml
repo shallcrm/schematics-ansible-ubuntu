@@ -1,0 +1,67 @@
+###########################################################################################################
+# Main definition of Common role
+###########################################################################################################
+
+---
+# Perform common system configuration tasks
+
+- name: Update apt
+  apt: 
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: yes
+
+- name: Install system packages common to all systems
+  apt: 
+    name: "{{ sys_packages }}"
+    state: latest
+
+- name:  Install any host specific packages if defined and not empty
+  apt: 
+    name: "{{ host_packages }}"
+    state: latest
+  when: (host_packages is defined) and (host_packages|length > 0)
+
+- name: Copy message of the day
+  copy:
+    src: etc/{{ inventory_hostname }}.motd
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+
+- name: Set time zone to Australia/Sydney
+  timezone: 
+    name: "Australia/Sydney"
+
+# - name: Log forwarding to DS414
+#   copy:
+#     src: etc/rsyslog.d/10-rsyslog.conf
+#     dest: /etc/rsyslog.d/10-rsyslog.conf
+#     owner: root
+#     group: root
+#     mode: 0644
+#     backup: yes
+
+
+# Include common tasks
+
+- name: Configure SSH
+  include_tasks: sshd_config.yml
+
+- name: Install and configure Fail2ban
+  include_tasks: fail2ban.yml
+
+- name: Install and configure SSMTP
+  include_tasks: ssmtp.yml
+
+- name: Create my personal user
+  include_tasks: my_user.yml
+
+
+# Include host=specific tasks (need logic to handle missing file)
+
+- name: Include host-specifc tasks if the file exists
+  include_tasks: "{{ inventory_hostname }}.yml"
+  when: inventory_hostname == "microserver" or inventory_hostname == "microk8s" or inventory_hostname == "raspberrypi7" or inventory_hostname == "focal-test" or inventory_hostname == "home-db"

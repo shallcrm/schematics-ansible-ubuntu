@@ -1,0 +1,13 @@
+###########################################################################################################
+# Main playbook to setup Ansible user on Raspberrry Pi and Ubuntu
+###########################################################################################################
+
+---
+- hosts: ubuntu
+  become: yes
+  remote_user: michael
+  gather_facts: false
+  roles:
+    - role: ansible
+
+# Insert other tasks here

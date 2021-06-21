@@ -1,0 +1,19 @@
+###########################################################################################################
+# Tasks to configure fail2ban
+###########################################################################################################
+
+---
+- name: Install fail2ban
+  apt: 
+    update_cache=yes
+    name=fail2ban 
+    state=latest
+
+- name: Copy standard fail2ban configuration file
+  template:
+    src:  etc/fail2ban/jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes

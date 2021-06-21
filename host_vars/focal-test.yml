@@ -1,0 +1,9 @@
+###########################################################################################################
+# Variables specific to focal-test
+###########################################################################################################
+
+---
+fail2ban_sender: focal-test
+ssmtp_hostname: focal-test
+host_packages: [ 'apt-transport-https', 'gnupg2', 'curl', 'ansible', 'cockpit' ] 
+

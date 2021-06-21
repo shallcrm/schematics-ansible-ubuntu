@@ -1,0 +1,13 @@
+###########################################################################################################
+# Main playbook for Raspberrry Pi configuration
+###########################################################################################################
+
+---
+- hosts: ubuntu
+  become: yes
+  remote_user: ansible
+  gather_facts: false
+  roles:
+    - role: common
+
+# Insert other tasks here
