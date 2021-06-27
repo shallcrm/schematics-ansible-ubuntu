@@ -3,7 +3,7 @@
 ###########################################################################################################
 
 ---
-fail2ban_sender: focal-test
-ssmtp_hostname: focal-test
+fail2ban_sender: shallcrm-frontend-vsi-1
+ssmtp_hostname: shallcrm-frontend-vsi-1
 host_packages: [ 'apt-transport-https', 'gnupg2', 'curl', 'ansible', 'cockpit' ] 
 

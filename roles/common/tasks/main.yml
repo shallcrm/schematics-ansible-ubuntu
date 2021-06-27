@@ -24,7 +24,7 @@
 
 - name: Copy message of the day
   copy:
-    src: etc/{{ inventory_hostname }}.motd
+    src: etc/ubuntu.motd
     dest: /etc/motd
     owner: root
     group: root
