@@ -21,6 +21,6 @@ fail2ban_destemail: notification.user@mail.domain
 fail2ban_bantime: 86400
 fail2ban_findtime: 600
 fail2ban_maxretry: 3
-fail2ban_sender: {{ inventory_hostname }}
+fail2ban_sender: "{{ inventory_hostname }}"
 
-ssmtp_hostname: {{ inventory_hostname }}
+ssmtp_hostname: "{{ inventory_hostname }}"
