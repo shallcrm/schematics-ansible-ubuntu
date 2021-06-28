@@ -43,8 +43,8 @@
     state: present
     key: "{{ item }}"
   with_file:
-    - home/.ssh/vsi_ansible_pwless_ssh_key.pub
-    - home/.ssh/vsi_ibmuser_pwless_ssh_key.pub
+    - home/ssh/vsi_ansible_pwless_ssh_key.pub
+    - home/ssh/vsi_ibmuser_pwless_ssh_key.pub
 
 - name: Set standard ssh configuration
   copy:
