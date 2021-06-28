@@ -21,8 +21,8 @@
     backup: yes
 
 - name: Copy standard reverse aliases file
-  copy:
-    src: etc/ssmtp/revaliases
+  template:
+    src:  etc/ssmtp/revaliases.j2
     dest: /etc/ssmtp/revaliases
     owner: root
     group: root
