@@ -4,10 +4,11 @@
 
 ---
 
+# Print ansible facts if needed for debugging
+
 - name: Print all available facts
   ansible.builtin.debug:
     var: ansible_facts
-
 
 # Perform common system configuration tasks
 
@@ -52,7 +53,6 @@
 #     mode: 0644
 #     backup: yes
 
-
 # Include common tasks
 
 - name: Configure SSH
@@ -67,9 +67,3 @@
 - name: Create my personal user
   include_tasks: my_user.yml
 
-
-# Include host=specific tasks (need logic to handle missing file)
-
-# - name: Include host-specifc tasks if the file exists
-#   include_tasks: "{{ inventory_hostname }}.yml"
-#   when: inventory_hostname == "microserver" or inventory_hostname == "microk8s" or inventory_hostname == "raspberrypi7" or inventory_hostname == "focal-test" or inventory_hostname == "home-db"
