@@ -24,7 +24,7 @@
 
 - name: Copy message of the day
   copy:
-    src: etc/ubuntu.motd
+    src: etc/ubuntu.cfg
     dest: /etc/motd
     owner: root
     group: root
@@ -37,7 +37,7 @@
 
 # - name: Log forwarding to DS414
 #   copy:
-#     src: etc/rsyslog.d/10-rsyslog.conf
+#     src: etc/rsyslog.d/10-rsyslog.cfg
 #     dest: /etc/rsyslog.d/10-rsyslog.conf
 #     owner: root
 #     group: root

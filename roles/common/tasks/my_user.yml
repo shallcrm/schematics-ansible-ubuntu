@@ -39,7 +39,7 @@
 
 - name: Set standard ssh configuration
   copy:
-    src: home/.ssh/config
+    src: home/.ssh/config.cfg
     dest: /home/{{ my_user }}/.ssh/config
     owner: "{{ my_user }}"
     group: "{{ my_user }}"
