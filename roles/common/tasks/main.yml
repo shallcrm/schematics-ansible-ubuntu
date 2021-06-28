@@ -4,13 +4,6 @@
 
 ---
 
-# Display facts from each host
-
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
-
-
 # Perform common system configuration tasks
 
 - name: Update apt

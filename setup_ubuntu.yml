@@ -6,7 +6,7 @@
 - hosts: ubuntu
   become: yes
   remote_user: ansible
-  gather_facts: false
+  gather_facts: true
   roles:
     - role: common
 
