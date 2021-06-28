@@ -16,6 +16,8 @@
     name: "{{ sys_packages }}"
     state: latest
 
+# Host-specifc packages for dynamic inventory will need an alternative way of specifying variables other than files in host_vars 
+
 - name:  Install any host specific packages if defined and not empty
   apt: 
     name: "{{ host_packages }}"
@@ -62,6 +64,6 @@
 
 # Include host=specific tasks (need logic to handle missing file)
 
-- name: Include host-specifc tasks if the file exists
-  include_tasks: "{{ inventory_hostname }}.yml"
-  when: inventory_hostname == "microserver" or inventory_hostname == "microk8s" or inventory_hostname == "raspberrypi7" or inventory_hostname == "focal-test" or inventory_hostname == "home-db"
+# - name: Include host-specifc tasks if the file exists
+#   include_tasks: "{{ inventory_hostname }}.yml"
+#   when: inventory_hostname == "microserver" or inventory_hostname == "microk8s" or inventory_hostname == "raspberrypi7" or inventory_hostname == "focal-test" or inventory_hostname == "home-db"
