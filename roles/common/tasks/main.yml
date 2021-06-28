@@ -32,7 +32,7 @@
 
 - name: Copy message of the day
   copy:
-    src: etc/ubuntu.cfg
+    src: etc/ubuntu.motd.cfg
     dest: /etc/motd
     owner: root
     group: root
