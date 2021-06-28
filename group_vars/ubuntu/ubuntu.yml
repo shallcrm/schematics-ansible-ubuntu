@@ -21,8 +21,8 @@ fail2ban_destemail: notification.user@mail.domain
 fail2ban_bantime: 86400
 fail2ban_findtime: 600
 fail2ban_maxretry: 3
-fail2ban_sender: ansible_facts["hostname"]
+fail2ban_sender: "{{ ansible_facts["hostname"] }}
 
-ssmtp_hostname: ansible_facts["hostname"]
+ssmtp_hostname: "{{ ansible_hostname }}"
 ssmtp_sender: root.sender@mail.domain
 ssmtp_mailhub: mail.mail.domain
