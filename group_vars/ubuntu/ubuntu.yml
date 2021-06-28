@@ -9,7 +9,7 @@ ansible_user: ansible
 
 sys_packages: [ 'mc', 'htop', 'curl', 'git', 'ufw', 'software-properties-common', 'avahi-daemon', 'net-tools', 'nfs-common', 'jq' ] 
 
-ssh_allow_users:  "ibmuser ansible ubuntu"
+ssh_allow_users:  "ibmuser ansible ubuntu root"
 
 my_user: ibmuser
 # my_ssh_key: "{{ lookup('file', 'home/.ssh/vsi_ibmuser_pwless_ssh_key.pub') }}"
