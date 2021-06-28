@@ -39,7 +39,7 @@
 
 # - name: Log forwarding to DS414
 #   copy:
-#     src: etc/rsyslog.d/10-rsyslog.cfg
+#     src: etc/rsyslog.d/10-rsyslog.conf
 #     dest: /etc/rsyslog.d/10-rsyslog.conf
 #     owner: root
 #     group: root
