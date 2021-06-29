@@ -14,6 +14,8 @@ my_user: ibmuser
 git_global_name: "User Name"
 git_global_email: git.user@mail.domain
 
+# Sensitive variables to be over-ridden using IBM Cloud Schematics playbook "Advanced Options" variables
+
 # Fail2ban variables
 fail2ban_destemail: notification.user@mail.domain
 fail2ban_bantime: 86400
