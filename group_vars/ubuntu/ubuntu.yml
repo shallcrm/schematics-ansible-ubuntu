@@ -3,17 +3,14 @@
 ###########################################################################################################
 
 ---
+# On IBM Cloud Schematics need to use Playbook "Advanced Options" to specify optional variable ansible_user
 ansible_user: ansible
-# ansible_ssh_private_key_file: ~/.ssh/vsi_ansible_pwless_ssh_key
-# ansible_python_interpreter: /usr/bin/python3
 
 sys_packages: [ 'mc', 'htop', 'curl', 'git', 'ufw', 'software-properties-common', 'avahi-daemon', 'net-tools', 'nfs-common', 'jq' ] 
 
 ssh_allow_users:  "ibmuser ansible ubuntu root"
 
 my_user: ibmuser
-# my_ssh_key: "{{ lookup('file', 'home/.ssh/vsi_ibmuser_pwless_ssh_key.pub') }}"
-# my_ansible_ssh_key: "{{ lookup('file', 'home/.ssh/vsi_ansible_pwless_ssh_key.pub') }}"
 git_global_name: "User Name"
 git_global_email: git.user@mail.domain
 
