@@ -3,7 +3,7 @@
 ###########################################################################################################
 
 ---
-# On IBM Cloud Schematics need to use Playbook "Advanced Options" to specify optional variable ansible_user
+# On IBM Cloud Schematics must use Playbook "Advanced Options" to specify variable ansible_user
 ansible_user: ansible
 
 sys_packages: [ 'mc', 'htop', 'curl', 'git', 'ufw', 'software-properties-common', 'avahi-daemon', 'net-tools', 'nfs-common', 'jq' ] 
@@ -26,6 +26,7 @@ fail2ban_sender: "{{ ansible_hostname }}"
 # ssmtp configuration variables 
 ssmtp_hostname: "{{ ansible_hostname }}"
 
-# ssmtp revaliases variables
-ssmtp_sender: root.sender@mail.domain
-ssmtp_mailhub: mail.mail.domain
+# ssmtp revaliases variables (From: user) for root
+# When using SendGrid, must use a validated email sender address
+ssmtp_sender: root.sender.validated.sendgrid.user@validated.mail.domain
+ssmtp_mailhub: smtp.sendgrid.net:587
